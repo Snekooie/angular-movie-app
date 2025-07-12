@@ -1,0 +1,67 @@
+<div class="cont">
+  <nav class="nav">
+    <div class="nav-wrapper">
+      <a href="#" class="app-logo"
+        ><img src="../assets/logo2024.svg" alt="" class="app-logo-img"
+      /></a>
+
+      <ul class="menu">
+        <li class="menu_item">
+          <a href="#" class="menu_link">Home</a>
+        </li>
+        <li class="menu_item">
+          <a href="#" class="menu_link">Movies</a>
+        </li>
+        <li class="menu_item">
+          <a href="#" class="menu_link">Top Movies</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="nav-menu" #navMenu>
+      <div class="nav-menu-up">
+        <div class="profile-picture">
+          <i class="pi pi-user profile-icon"></i>
+        </div>
+        <div class="toggle">
+          <i class="pi pi-moon toggle-icon"></i>
+          <i class="pi pi-sun toggle-icon"></i>
+          <div class="toggle-ball"></div>
+        </div>
+      </div>
+
+      <ul class="mobile-menu">
+        <li class="mobile-menu-item">
+          <a href="#" class="mobile-menu-link">Home</a>
+        </li>
+        <li class="mobile-menu-item">
+          <a href="#" class="mobile-menu-link">Movies</a>
+        </li>
+        <li class="mobile-menu-item">
+          <a href="#" class="mobile-menu-link">Top Movies</a>
+        </li>
+      </ul>
+
+      <input type="text" class="search" name="Search" placeholder="Search..." />
+    </div>
+
+    <div class="nav-links">
+      <input type="text" class="search" name="Search" placeholder="Search..." />
+      <div class="profile-picture">
+        <i class="pi pi-user profile-icon"></i>
+      </div>
+      <div class="toggle">
+        <i class="pi pi-moon toggle-icon"></i>
+        <i class="pi pi-sun toggle-icon"></i>
+        <div class="toggle-ball"></div>
+      </div>
+    </div>
+
+    <div class="nav-btn" #navBtn (click)="handleNavBtn()">
+      <i class="pi pi-bars nav-btn-icon" #barsIcon></i>
+      <i class="pi pi-times nav-btn-icon" #timesIcon></i>
+    </div>
+  </nav>
+</div>
+
+<router-outlet></router-outlet>

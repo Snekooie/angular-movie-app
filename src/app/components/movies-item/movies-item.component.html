@@ -1,0 +1,93 @@
+<!-- tableeeeeeeeee -->
+
+<div class="relative shadow-md sm:rounded-lg">
+  <table
+    class="text-center rtl:text-right text-gray-500 dark:text-gray-400 table-fixed w-full"
+  >
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr class="h-25">
+        <th scope="col" class="px-14 py-3">
+          <span class="sr-only">Image</span>
+        </th>
+        <th scope="col" class="px-4 py-1">Name</th>
+        <th scope="col" class="px-4 py-1">Year</th>
+        <th scope="col" class="px-4 py-1">IMDB Rate</th>
+        <th scope="col" class="px-4 py-1">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600 h-25"
+      >
+        <td class="p-4 h-full">
+          <img
+            [src]="imageSrc"
+            class="w-16 md:w-32 max-w-full max-h-full"
+            alt="Apple Watch"
+          />
+        </td>
+        <td
+          class="px-4 py-4 h-full font-semibold text-gray-900 dark:text-white"
+        >
+          {{ title }}
+        </td>
+        <td
+          class="px-4 py-4 h-full font-semibold text-gray-900 dark:text-yellow-500"
+        >
+          {{ year }}
+        </td>
+        <td
+          class="px-4 py-4 h-full font-semibold text-red-500 dark:text-red-500"
+        >
+          {{ imdbRate }}
+        </td>
+        <td class="px-4 py-4 h-full">
+          <!-- <a
+            href="#"
+            class="font-medium text-red-600 dark:text-red-500 hover:underline"
+            >Remove</a
+          > -->
+          <!-- <button (click)="handleMovieSelect()" type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 rounded-lg px-3 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><i class="pi pi-bars"></i></button> -->
+          <div class="flex justify-center items-center gap-4">
+            <i
+              (click)="handleMovieSelect()"
+              class="pi pi-bars cursor-pointer"
+              style="color: black"
+            ></i>
+            <i (click)="handleLike()" [ngClass]="isLiked ? 'pi pi-heart-fill' : 'pi pi-heart'" style="color: red"></i>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p-toast />
+
+<!-- carouselllll -->
+
+<!-- <div class="relative p-4 bg-red-900">
+  Carousel Container
+  <div id="carousel" class="flex space-x-4 overflow-x-hidden scroll-smooth">
+    <div class="w-60 flex-shrink-0 bg-gray-800 rounded-lg p-4 shadow-lg">
+      <img
+        [src]="imageSrc"
+        alt="Movie Poster"
+        class="w-full h-80 object-cover rounded-md"
+      />
+      <h2 class="text-white text-lg font-bold mt-2">{{title}}</h2>
+      <p class="text-yellow-400 text-sm">{{country}}</p>
+      <p class="text-yellow-400 text-sm">{{year}}</p>
+      <div class="mt-3 flex space-x-2">
+        <button class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm">
+          Watch Trailer
+        </button>
+        <button class="bg-gray-700 text-white px-4 py-2 rounded-md text-sm">
+          More Info
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->

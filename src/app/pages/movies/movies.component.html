@@ -1,0 +1,7 @@
+<div class="mt-4 flex flex-wrap  justify-center items-center">
+  @for (item of movieResponse; track $index) {
+  <app-movies-item [title]="item.title" [year]="item.year"  [imdbRate]="item.imdb_rating" [imageSrc]="item.poster" (onMovieSelect)="handleMovieDetail(item.id)" (onMovieLiked)="handleMovieLiked(item.id)">
+  </app-movies-item>
+  }
+</div>
+

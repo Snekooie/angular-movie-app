@@ -1,0 +1,183 @@
+<!-- <div class="space-y-8 md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center">
+  <div class="grid gap-4 sm:m-auto">
+    <div>
+        <img class="w-sm rounded-lg" [src]="movieDetail.poster" alt="">
+    </div>
+    <div class="grid grid-cols-3 md:grid-cols-10 gap-4">
+      @for (item of movieDetail.images; track $index) {
+        <div>
+            <img class="h-auto w-sm rounded-lg" [src]="item" alt="">
+        </div>
+      }
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="w-full">
+  <div class="h-2.5  rounded-full  w-48 mb-4">{{movieDetail.title}}</div>
+
+</div> -->
+
+<div
+  class="h-auto shadow-lg mt-5 md:pr-10 md:pl-10 p-2 rounded-lg"
+  style="background-color: #1f1f1f"
+>
+  <div class="flex items-center justify-between w-full">
+    <!-- Movie Title -->
+    <div class="flex-col gap-4">
+      <h2 class="text-2xl font-bold text-white">
+        {{ movieDetail.title }}
+        <span class="text-white">({{ movieDetail.year }})</span>
+      </h2>
+      <p class="text-gray-400 mt-2">
+        {{ movieDetail.country }} • {{ movieDetail.rated }} •
+        {{ movieDetail.runtime }}
+      </p>
+    </div>
+
+    <!-- Desktop Movie Ratings -->
+    <div class="md:flex hidden">
+      <div class="grid grid-cols-3 gap-2 text-center">
+        <div
+          class="text-gray-400 p-4 rounded uppercase font-bold whitespace-nowrap"
+        >
+          imdb rating<br />
+          <i style="color: yellow" class="pi pi-star-fill"></i>
+          <span class="text-white text-2xl font-bold ml-1"
+            >{{ movieDetail.imdb_rating
+            }}<span class="text-gray-400 text-xl">/10</span>
+          </span>
+        </div>
+        <div
+          class="text-gray-400 p-4 rounded uppercase font-bold whitespace-nowrap"
+        >
+          imdb Votes<br /><span class="text-white text-2xl font-bold">{{
+            movieDetail.imdb_votes
+          }}</span>
+        </div>
+        <div
+          class="text-gray-400 p-4 rounded uppercase font-bold whitespace-nowrap"
+        >
+          metascore<br /><span class="text-white text-2xl font-bold">{{
+            movieDetail.metascore
+          }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie Poster -->
+  <!-- Desktop Movie POster -->
+  <div class="md:flex gap-10 hidden">
+    <div class="text-white mt-4 hidden md:flex">
+      <img class="w-sm rounded-lg" [src]="movieDetail.poster" alt="" />
+    </div>
+    <!-- <div class="hidden md:grid grid-cols-1 gap-4">
+      @for (item of movieDetail.images; track $index) {
+      <div>
+        <img class="h-auto w-sm rounded-lg" [src]="item" alt="" />
+      </div>
+      }
+    </div> -->
+    <div class="hidden md:flex items-center gap-4">
+      @for (item of movieDetail.images; track $index) {
+      <div>
+        <img
+          class="hover:scale-110 ease-in-out w-md rounded-lg"
+          [src]="item"
+          alt=""
+        />
+      </div>
+      }
+    </div>
+  </div>
+
+  <!-- Mobile Movie Poster -->
+  <div class="grid gap-4 md:hidden mt-3">
+    <div class="m-auto">
+      <img class="w-auto rounded-lg" [src]="movieDetail.poster" alt="" />
+    </div>
+    <div class="grid grid-cols-3 md:grid-cols-10 gap-4 m-auto">
+      @for (item of movieDetail.images; track $index) {
+      <div>
+        <img class="h-auto w-sm rounded-lg" [src]="item" alt="" />
+      </div>
+      }
+    </div>
+  </div>
+
+  <!-- Mobile Movie Ratings -->
+  <div class="flex md:hidden">
+    <div class="grid grid-cols-3 gap-2 text-center">
+      <div
+        class="text-gray-400 p-4 rounded uppercase font-bold whitespace-nowrap"
+      >
+        imdb rating<br />
+        <i style="color: yellow" class="pi pi-star-fill"></i>
+        <span class="text-white text-2xl font-bold ml-1"
+          >{{ movieDetail.imdb_rating
+          }}<span class="text-gray-400 text-xl">/10</span></span
+        >
+      </div>
+      <div
+        class="text-gray-400 p-4 rounded uppercase font-bold whitespace-nowrap"
+      >
+        imdb Votes<br /><span class="text-white text-2xl font-bold">{{
+          movieDetail.imdb_votes
+        }}</span>
+      </div>
+      <div
+        class="text-gray-400 p-4 rounded uppercase font-bold whitespace-nowrap"
+      >
+        metascore<br /><span class="text-white text-2xl font-bold">{{
+          movieDetail.metascore
+        }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Genres -->
+  <div class="mt-4 flex gap-4 items-center">
+    <h3 class="text-lg font-bold text-white">Genres:</h3>
+    @for (item of movieDetail.genres; track $index) {
+
+    <div class="flex space-x-2 mt-1">
+      <span class="bg-gray-500 text-white px-3 py-1 rounded-2xl">{{
+        item
+      }}</span>
+    </div>
+    }
+  </div>
+
+  <!-- Plot -->
+  <div class="mt-4 flex gap-4 items-center">
+    <h3 class="text-lg font-bold text-white">Plot:</h3>
+    <p class="text-gray-400">
+      {{ movieDetail.plot }}
+    </p>
+  </div>
+
+  <!-- Crew & Cast -->
+  <div class="flex items-center gap-4 mt-4 border-t border-gray-300 pt-4">
+    <h3 class="text-lg font-bold text-white">Director:</h3>
+    <p class="text-gray-400">{{ movieDetail.director }}</p>
+  </div>
+
+  <div class="flex items-center gap-4 mt-4 border-t border-gray-300 pt-4">
+    <h3 class="text-lg font-bold text-white">Writer:</h3>
+    <p class="text-gray-400">{{ movieDetail.writer }}</p>
+  </div>
+
+  <div class="flex items-center gap-4 mt-4 border-t border-gray-300 pt-4">
+    <h3 class="text-lg font-bold text-white">Actors:</h3>
+    <p class="text-gray-400">{{ movieDetail.actors }}</p>
+  </div>
+
+  <div class="flex items-center gap-4 mt-4 border-t border-gray-300 pt-4 mb-4">
+    <h3 class="text-lg font-bold text-white">Awards:</h3>
+    <p class="text-gray-400">{{ movieDetail.awards }}</p>
+  </div>
+</div>
