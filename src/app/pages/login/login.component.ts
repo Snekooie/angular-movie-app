@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   router = inject(Router);
   messageService = inject(MessageService);
 
+  showPassword: boolean = false;
+
   userLoginObj: any = {
     username: '',
     password: '',
@@ -26,6 +28,10 @@ export class LoginComponent implements OnInit {
         this.handleLogin();
       }
     });
+  }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 
   handleLogin() {
