@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { MoviesItemComponent } from '../../components/movies-item/movies-item.component';
 import { MoviesModel } from './movies.model';
 import { MoviesService } from './movies.service';
-import { SearchMovieComponent } from './search-movie/search-movie.component';
 
 @Component({
   selector: 'app-movies',
