@@ -12,11 +12,12 @@ import { MovieDetailResponse } from '../movies/movie-detail/movie-detail.model';
 import { MovieDetailService } from '../movies/movie-detail/movie-detail.service';
 import { MoviesService } from '../movies/movies.service';
 import { MoviesModel } from './../movies/movies.model';
-import { DashboardMovie, DashboardMovies } from './dashboard.model';
+import { DashboardMovie, DashboardMovies, NewReleaseMovies, NewReleaseMovie } from './dashboard.model';
+import { MainMoviesComponent } from "../../components/main-movies/main-movies.component";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [SidebarModule, ButtonModule],
+  imports: [SidebarModule, ButtonModule, MainMoviesComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
   providers: [MoviesService],
@@ -35,6 +36,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   currentImageIndex: number = 0;
   dashboardMovies: DashboardMovie[] = DashboardMovies;
   intervalId!: number;
+
+  newReleaseMovies: NewReleaseMovie[]= NewReleaseMovies;
 
   ngOnInit(): void {}
   ngAfterViewInit(): void {

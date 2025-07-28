@@ -7,7 +7,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './main-movies.component.css',
 })
 export class MainMoviesComponent {
-  @Input() title: string = '';
   @Input() imageSrc: string = '';
   @Input() movieTitle: string = '';
   @Input() rateNumber: Number = 0

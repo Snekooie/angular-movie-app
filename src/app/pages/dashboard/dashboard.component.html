@@ -3,11 +3,36 @@
     <img
       src="./assets/header-image-name/balleriane.png"
       alt=""
-      class="header-content-image" #headerContentImage
+      class="header-content-image"
+      #headerContentImage
     />
   </div>
 </header>
 
 <main class="main">
-
+  <div class="cont">
+    <section class="movies-section text-white">
+      <div
+        class="movies-section-wrapper flex items-center justify-between mt-[1.5rem] mb-[1.5rem] mr-0 ml-0"
+      >
+        <h2 class="movies-section-title">New Release</h2>
+        <a
+          href=""
+          class="btn movies-section-btn w-[8rem] border-[1px] border-solid border-[#595959]"
+          >See All</a
+        >
+      </div>
+      <div
+        class="movies-section-boxes flex justify-start items-start gap-[5rem] overflow-auto scroll-smooth"
+      >
+        @for (item of newReleaseMovies; track $index) {
+        <app-main-movies
+          [imageSrc]="item.moviePoster"
+          [movieTitle]="item.movieTitle"
+          [rateNumber]="item.rateNumber"
+        ></app-main-movies>
+        }
+      </div>
+    </section>
+  </div>
 </main>

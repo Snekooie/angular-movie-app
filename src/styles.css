@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "primeicons/primeicons.css";
 
+
 @font-face {
   font-family: "Vazirmatn";
   src: url("./assets/fonts/Vazirmatn/Vazirmatn-Bold.woff2") format("woff2");
@@ -26,6 +27,7 @@ body {
   line-height: 1.6;
   font-size: 1.6rem;
   font-family: "Vazirmatn";
+  background-color: #212529
 }
 a {
   text-decoration: none;
@@ -36,6 +38,17 @@ ul {
   padding: 0;
   color: white;
 }
+
+.btn {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: 1px solid rgb(24, 24, 24);
+    cursor: pointer;
+}
+
 .cont {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -43,11 +56,11 @@ ul {
   margin-right: auto;
   margin-left: auto;
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
   z-index: 10;
 }
+
 
 @media (min-width: 576px) {
   .cont {
