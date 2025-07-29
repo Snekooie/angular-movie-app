@@ -1,34 +1,35 @@
 <div
   class="movie-box h-[50rem] flex flex-col flex-[0_0_20rem] rounded-[2rem] border border-solid border-[#595959] pb-[1rem] mb-[2rem]"
 >
-  <div class="movie-box-poster rounded-[2rem] overflow-hidden">
+  <div class="movie-box-poster aspect-[3/4] rounded-[2rem] overflow-hidden">
     <img
       [src]="imageSrc"
       alt=""
       class="movie-box-image w-full h-full object-cover"
     />
   </div>
-  <div class="movie-box-info">
-    <div class="movie-box-rate">
+  <div
+    class="movie-box-info flex flex-col justify-between flex-grow pl-[1rem] pt-[1rem]"
+  >
+    <div class="movie-box-rate flex items-center">
       <span>
-        <svg
-          width="24"
-          height="24"
-          xmlns="http://www.w3.org/2000/svg"
-          class="ipc-icon ipc-icon--star-inline place-rate-icon"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          role="presentation"
-        >
-          <path
-            d="M12 20.1l5.82 3.682c1.066.675 2.37-.322 2.09-1.584l-1.543-6.926 5.146-4.667c.94-.85.435-2.465-.799-2.567l-6.773-.602L13.29.89a1.38 1.38 0 0 0-2.581 0l-2.65 6.53-6.774.602C.052 8.126-.453 9.74.486 10.59l5.147 4.666-1.542 6.926c-.28 1.262 1.023 2.26 2.09 1.585L12 20.099z"
-          ></path>
-        </svg>
-        <span class="movie-box-rate-num">{{ rateNumber }}</span>
+        <i
+          class="pi pi-star-fill"
+          style="color: #f5c518; font-size: 1.8rem; margin-right: 1rem;"
+        ></i>
+        <span class="movie-box-rate-num text-[1.8rem]">{{ rateNumber }}</span>
       </span>
     </div>
-    <div class="movie-box-title">{{ movieTitle }}</div>
-    <a class="movie-box-trailer">Trailer</a>
-    <a class="movie-box-detail">Detail</a>
+    <p class="movie-box-title mt-[1rem] mb-[0.5rem]">{{ movieTitle }}</p>
+    <div class="mt-auto">
+      <a
+        class="btn movie-box-trailer bg-[#f5c518] w-[10rem] m-[0_auto_0.7rem_auto]"
+        >Trailer</a
+      >
+      <a
+        class="btn movie-box-detail w-[10rem] m-[0_auto] text-[#8d8d8d] bg-[#8d8d8d1a]"
+        >Detail</a
+      >
+    </div>
   </div>
 </div>
