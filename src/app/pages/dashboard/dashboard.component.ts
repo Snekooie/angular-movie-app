@@ -47,7 +47,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
   changeBackground() {
     if (window.screen.width < 768) {
-      this.currentImageIndex = (this.currentImageIndex + 1) % 4;
+      this.currentImageIndex = (this.currentImageIndex + 1) % 5;
 
       this.header.nativeElement.style.backgroundImage = `url("assets/mobileView/${
         this.dashboardMovies[this.currentImageIndex].mobMovieImage
@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         this.dashboardMovies[this.currentImageIndex].movieTitle
       }`;
     } else {
-      this.currentImageIndex = (this.currentImageIndex + 1) % 4;
+      this.currentImageIndex = (this.currentImageIndex + 1) % 5;
 
       this.header.nativeElement.style.backgroundImage = `url("assets/pcView/${
         this.dashboardMovies[this.currentImageIndex].pcMovieImage

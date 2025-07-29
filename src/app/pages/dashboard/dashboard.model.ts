@@ -18,13 +18,18 @@ export const DashboardMovies: DashboardMovie[] = [
   },
 
   {
+    pcMovieImage: 'Squid-Game-2025-Season-3-Back.jpg',
+    mobMovieImage: 'Squid-Game-2025-Season-3-Mobile.jpg',
+    movieTitle: 'Squid-Game-S3-Slider-Logo.png.webp',
+  },
+  {
     pcMovieImage: 'Fountain-of-Youth-slide-pc.jpg.webp',
     mobMovieImage: 'Fountain-of-Youth-slide-mob.jpg.webp',
     movieTitle: 'Fountain-of-Youth-slide-logo.png.webp',
   },
 
   {
-    pcMovieImage: 'Thunderbolts-2025-Wallpaper.jpg.webp',
+    pcMovieImage: 'Thunderbolts-Desk.jpg',
     mobMovieImage: 'Thunderbolts-2025-Wallpaper.jpg.webp',
     movieTitle: 'Thunderbolts_2025_logo.png',
   },
