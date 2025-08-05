@@ -20,11 +20,6 @@ export class MoviesComponent implements OnInit {
   ngOnInit(): void {
     this.movies.getAllMovies().subscribe({
       next: (response) => {
-        // this.movieResponse = response.data;
-        // console.log(this.movieResponse);
-        // console.log(response.data[0]);
-        // console.log(this.movieResponse);
-        // console.log(response.data[0].poster);
         this.movieResponse = response.data;
         console.log(this.movieResponse);
         console.log(response.data[0].id);
@@ -32,9 +27,7 @@ export class MoviesComponent implements OnInit {
       error: () => {},
       complete: () => {},
     });
-
   }
-
 
   handleMovieDetail(id: number) {
     debugger;
@@ -51,6 +44,5 @@ export class MoviesComponent implements OnInit {
       this.ids.push(id);
     }
     console.log(this.ids);
-
   }
 }

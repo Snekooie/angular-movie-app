@@ -7,7 +7,7 @@ export interface DashboardMovie {
 export interface NewReleaseMovie {
   movieTitle: string;
   moviePoster: string;
-  rateNumber: number;
+  rateNumber: string;
 }
 
 export const DashboardMovies: DashboardMovie[] = [
@@ -44,36 +44,36 @@ export const NewReleaseMovies: NewReleaseMovie[] = [
   {
     movieTitle: 'Sinners',
     moviePoster: 'assets/dashboard-movie-poster/sinners.jpg',
-    rateNumber: 7.7,
+    rateNumber: "7.7",
   },
   {
     movieTitle: '28 Years Later',
     moviePoster: 'assets/dashboard-movie-poster/28yearslater.jpg',
-    rateNumber: 7.1,
+    rateNumber: "7.1",
   },
   {
     movieTitle: 'Bring Her Back',
     moviePoster: 'assets/dashboard-movie-poster/bringherback.jpg',
-    rateNumber: 7.3,
+    rateNumber: "7.3",
   },
   {
     movieTitle: 'Eden',
     moviePoster: 'assets/dashboard-movie-poster/eden.jpg',
-    rateNumber: 7.5,
+    rateNumber: "7.5",
   },
   {
     movieTitle: 'F1: The Movie',
     moviePoster: 'assets/dashboard-movie-poster/f1.jpg',
-    rateNumber: 7.9,
+    rateNumber: "7.9",
   },
   {
     movieTitle: 'Ironheart',
     moviePoster: 'assets/dashboard-movie-poster/ironheart.jpg',
-    rateNumber: 4.2,
+    rateNumber: "4.2",
   },
   {
     movieTitle: 'Mission Impossible: The Final Reckoning',
     moviePoster: 'assets/dashboard-movie-poster/missionimpossible.jpg',
-    rateNumber: 7.4,
+    rateNumber: "7.4",
   },
 ];

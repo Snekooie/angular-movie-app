@@ -9,5 +9,5 @@ import { Component, Input } from '@angular/core';
 export class MainMoviesComponent {
   @Input() imageSrc: string = '';
   @Input() movieTitle: string = '';
-  @Input() rateNumber: Number = 0
+  @Input() rateNumber: string = ''
 }

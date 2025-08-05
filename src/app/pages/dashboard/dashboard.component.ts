@@ -12,8 +12,13 @@ import { MovieDetailResponse } from '../movies/movie-detail/movie-detail.model';
 import { MovieDetailService } from '../movies/movie-detail/movie-detail.service';
 import { MoviesService } from '../movies/movies.service';
 import { MoviesModel } from './../movies/movies.model';
-import { DashboardMovie, DashboardMovies, NewReleaseMovies, NewReleaseMovie } from './dashboard.model';
-import { MainMoviesComponent } from "../../components/main-movies/main-movies.component";
+import {
+  DashboardMovie,
+  DashboardMovies,
+  NewReleaseMovies,
+  NewReleaseMovie,
+} from './dashboard.model';
+import { MainMoviesComponent } from '../../components/main-movies/main-movies.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -37,9 +42,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   dashboardMovies: DashboardMovie[] = DashboardMovies;
   intervalId!: number;
 
-  newReleaseMovies: NewReleaseMovie[]= NewReleaseMovies;
+  newReleaseMovies: NewReleaseMovie[] = NewReleaseMovies;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.movieService.getAllMovies().subscribe({
+      next: (res) => {
+        this.homePageMovies = res.data;
+      },
+    });
+  }
   ngAfterViewInit(): void {
     this.intervalId = window.setInterval(() => {
       this.changeBackground();
@@ -69,50 +80,3 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
   }
 }
-
-//   this.movieService.getAllMovies().subscribe({
-//     next: (res) => {
-//       console.log(res);
-//       this.homePageMovies = res.data;
-//       console.log(this.homePageMovies);
-//       for (let index = 0; index < this.homePageMovies.length; index++) {
-//         this.movieDetailService
-//           .getMovieDetail(this.homePageMovies[index].id)
-//           .subscribe({
-//             next: (data) => {
-//               this.homePageMoviesDetail = data;
-//               console.log('hp', this.homePageMoviesDetail);
-//               console.log(this.homePageMoviesDetail.plot);
-//             },
-//           });
-//       }
-//     },
-//     error: (err) => {},
-//   });
-//   this.startAutoScroll()
-// }
-// startAutoScroll() {
-//   this.scrollInterval = setInterval(() => {
-//     if (this.scrollContainer && !this.isPaused) {
-//       let container = this.scrollContainer.nativeElement;
-//       container.scrollLeft += this.scrollSpeed;
-
-//       // **Detect When Scroll Reaches End**
-//       if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
-//         clearInterval(this.scrollInterval); // Stop scrolling
-//         this.isPaused = true; // Set pause flag
-
-//         setTimeout(() => {
-//           container.style.transition = 'scroll-left 2s ease-in-out'; // Smooth transition
-//           container.scrollLeft = 0; // Reset to first image
-
-//           setTimeout(() => {
-//             container.style.transition = 'none'; // Remove transition after reset
-//             this.isPaused = false; // Resume scrolling
-//             this.startAutoScroll(); // Restart auto-scroll
-//           }, 2000); // Transition time matches the effect
-//         }, 2000); // Pause duration before resetting
-//       }
-//     }
-//   }, 50); // Adjust for smooth effect
-// }
