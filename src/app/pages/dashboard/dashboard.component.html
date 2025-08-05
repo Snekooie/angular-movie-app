@@ -54,6 +54,7 @@
           [imageSrc]="item.poster"
           [movieTitle]="item.title"
           [rateNumber]="item.imdb_rating"
+          (onMovieDetail)="handleMovieDetail(item.id)"
         ></app-main-movies>
         }
       </div>

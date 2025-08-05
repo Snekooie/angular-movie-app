@@ -19,6 +19,7 @@ import {
   NewReleaseMovie,
 } from './dashboard.model';
 import { MainMoviesComponent } from '../../components/main-movies/main-movies.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,6 +29,7 @@ import { MainMoviesComponent } from '../../components/main-movies/main-movies.co
   providers: [MoviesService],
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
+  router = inject(Router)
   movieService = inject(MoviesService);
   movieDetailService = inject(MovieDetailService);
   homePageMovies: MoviesModel[] = [];
@@ -78,5 +80,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         this.dashboardMovies[this.currentImageIndex].movieTitle
       }`;
     }
+  }
+
+  handleMovieDetail(id: number){
+    this.router.navigate(['/movie', id])
   }
 }

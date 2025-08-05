@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-main-movies',
@@ -9,5 +9,11 @@ import { Component, Input } from '@angular/core';
 export class MainMoviesComponent {
   @Input() imageSrc: string = '';
   @Input() movieTitle: string = '';
-  @Input() rateNumber: string = ''
+  @Input() rateNumber: string = '';
+
+  @Output() onMovieDetail = new EventEmitter();
+
+  handleMovieDetail() {
+    this.onMovieDetail.emit();
+  }
 }
