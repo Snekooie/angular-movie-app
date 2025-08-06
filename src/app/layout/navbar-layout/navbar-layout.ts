@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -7,28 +8,43 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { ButtonModule } from 'primeng/button';
-import { Sidebar, SidebarModule } from 'primeng/sidebar';
-import { SearchMovieService } from '../../pages/movies/search-movie/search-movie.service';
-import {
-  DashboardMovie,
-  DashboardMovies,
-} from '../../pages/dashboard/dashboard.model';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'navabr-layout',
   templateUrl: 'navbar-layout.html',
   styleUrls: ['./navbar-layout.css'],
-  imports: [RouterOutlet, FormsModule, SidebarModule, ButtonModule],
+  imports: [RouterOutlet, FormsModule, CommonModule],
 })
 export class NavbarLayoutComponent implements OnInit, AfterViewInit {
+  router = inject(Router);
+  location = inject(Location);
   @ViewChild('navBtn') navBtn!: ElementRef<HTMLElement>;
   @ViewChild('barsIcon') barsIcon!: ElementRef<HTMLElement>;
   @ViewChild('timesIcon') timesIcon!: ElementRef<HTMLElement>;
   @ViewChild('navMenu') navMenu!: ElementRef<HTMLElement>;
   isNavOpen: boolean = false;
-  ngOnInit() {}
+
+  currentUrl: string = '';
+
+  ngOnInit(): void {
+    if (this.router && this.router.events) {
+      this.router.events
+        .pipe(filter((event) => event instanceof NavigationEnd))
+        .subscribe((event: NavigationEnd) => {
+          this.currentUrl = event.urlAfterRedirects;
+          console.log(this.currentUrl);
+        });
+    }
+  }
+
+  get isHomePage(): boolean {
+    const path = this.location.path();
+    return path === '' || path === '/' || path.startsWith('/dashboard');
+  }
+
   ngAfterViewInit(): void {}
 
   handleNavBtn(): void {

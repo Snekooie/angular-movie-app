@@ -27,7 +27,7 @@
 }
 
 .movies-section-boxes::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 ::ng-deep app-main-movies {

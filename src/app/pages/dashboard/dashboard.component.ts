@@ -6,35 +6,28 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
-import { SidebarModule } from 'primeng/sidebar';
-import { MovieDetailResponse } from '../movies/movie-detail/movie-detail.model';
-import { MovieDetailService } from '../movies/movie-detail/movie-detail.service';
+import { Router } from '@angular/router';
+import { MainMoviesComponent } from '../../components/main-movies/main-movies.component';
 import { MoviesService } from '../movies/movies.service';
 import { MoviesModel } from './../movies/movies.model';
 import {
   DashboardMovie,
   DashboardMovies,
-  NewReleaseMovies,
   NewReleaseMovie,
+  NewReleaseMovies,
 } from './dashboard.model';
-import { MainMoviesComponent } from '../../components/main-movies/main-movies.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [SidebarModule, ButtonModule, MainMoviesComponent],
+  imports: [MainMoviesComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
   providers: [MoviesService],
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
-  router = inject(Router)
+  router = inject(Router);
   movieService = inject(MoviesService);
-  movieDetailService = inject(MovieDetailService);
   homePageMovies: MoviesModel[] = [];
-  movieDetail!: MovieDetailResponse;
-  homePageMoviesDetail!: MovieDetailResponse;
   @ViewChild('header') header!: ElementRef<HTMLElement>;
   @ViewChild('headerContentImage')
   headerContentImage!: ElementRef<HTMLImageElement>;
@@ -82,7 +75,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
   }
 
-  handleMovieDetail(id: number){
-    this.router.navigate(['/movie', id])
+  handleMovieDetail(id: number) {
+    this.router.navigate(['/movie', id]);
   }
 }
