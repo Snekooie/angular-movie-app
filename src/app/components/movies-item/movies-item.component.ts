@@ -1,11 +1,10 @@
-import { NgClass } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Toast } from 'primeng/toast';
 
 @Component({
   selector: 'app-movies-item',
-  imports: [NgClass, Toast],
+  imports: [Toast],
   providers: [MessageService],
   templateUrl: './movies-item.component.html',
   styleUrl: './movies-item.component.css',

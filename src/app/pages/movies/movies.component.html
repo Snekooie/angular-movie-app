@@ -1,7 +1,22 @@
-<div class="mt-4 flex flex-wrap  justify-center items-center">
-  @for (item of movieResponse; track $index) {
-  <app-movies-item [title]="item.title" [year]="item.year"  [imdbRate]="item.imdb_rating" [imageSrc]="item.poster" (onMovieSelect)="handleMovieDetail(item.id)" (onMovieLiked)="handleMovieLiked(item.id)">
-  </app-movies-item>
-  }
+<div class="bg-[#161616] mt-15">
+  <div class="cont">
+    <div class="flex justify-center">
+      <h2 class="text-5xl font-bold mt-10 mb-5">IMDB Top 250 Movies</h2>
+    </div>
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-8 text-center mt-5"
+    >
+      @for (item of movieResponse; track $index) {
+      <app-movies-item
+        [title]="item.title"
+        [year]="item.year"
+        [imdbRate]="item.imdb_rating"
+        [imageSrc]="item.poster"
+        (onMovieSelect)="handleMovieDetail(item.id)"
+        (onMovieLiked)="handleMovieLiked(item.id)"
+      >
+      </app-movies-item>
+      }
+    </div>
+  </div>
 </div>
-

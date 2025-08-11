@@ -8,7 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Location } from '@angular/common';
 
@@ -16,7 +16,7 @@ import { Location } from '@angular/common';
   selector: 'navabr-layout',
   templateUrl: 'navbar-layout.html',
   styleUrls: ['./navbar-layout.css'],
-  imports: [RouterOutlet, FormsModule, CommonModule],
+  imports: [RouterOutlet, FormsModule, CommonModule, RouterLink],
 })
 export class NavbarLayoutComponent implements OnInit, AfterViewInit {
   router = inject(Router);
