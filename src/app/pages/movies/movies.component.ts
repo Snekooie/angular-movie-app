@@ -3,10 +3,11 @@ import { Router } from '@angular/router';
 import { MoviesItemComponent } from '../../components/movies-item/movies-item.component';
 import { MoviesModel } from './movies.model';
 import { MoviesService } from './movies.service';
+import { PaginationComponent } from "../../components/pagination/pagination.component";
 
 @Component({
   selector: 'app-movies',
-  imports: [MoviesItemComponent],
+  imports: [MoviesItemComponent, PaginationComponent],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.css',
   providers: [MoviesService],

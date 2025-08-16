@@ -1,0 +1,39 @@
+<div
+  class="flex items-center justify-center gap-2 py-2 border border-solid mt-5"
+>
+  <button
+    (click)="prevPage()"
+    [ngClass]="
+      currentpage === 1
+        ? 'disabled:opacity-50'
+        : 'btn p-2 cursor-pointer hover:bg-gray-700'
+    "
+    [disabled]="currentpage === 1"
+  >
+    Prev
+  </button>
+
+  @for (page of visiblePage(); track $index) {
+  <button
+    (click)="goToPage(page)"
+    class="mr-1 cursor-pointer w-12 h-12 flex items-center justify-center text-center"
+    [ngClass]="page === currentpage ? 'bg-amber-500 rounded-full' : ''"
+  >
+    {{ page }}
+  </button>
+  }
+
+  <button
+    (click)="nextPage()"
+    [ngClass]="
+      currentpage === pages.length
+        ? 'disabled:opacity-50'
+        : 'btn p-2 cursor-pointer hover:bg-gray-700'
+    "
+    [disabled]="currentpage === pages.length"
+  >
+    Next
+  </button>
+</div>
+
+<!-- <p-paginator [first]="5" [rows]="1" [totalRecords]="10" /> -->
