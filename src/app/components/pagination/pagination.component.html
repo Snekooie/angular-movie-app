@@ -1,12 +1,11 @@
-<div
-  class="flex items-center justify-center gap-2 py-2 mt-5"
->
+<div class="flex items-center justify-center gap-2 py-2 mt-5">
   <button
     (click)="prevPage()"
+    class="mr-1.5"
     [ngClass]="
       currentpage === 1
-        ? 'disabled:opacity-50'
-        : 'btn p-2 cursor-pointer hover:bg-gray-700'
+        ? 'opacity-50'
+        : 'btn cursor-pointer hover:bg-gray-700'
     "
     [disabled]="currentpage === 1"
   >
@@ -25,15 +24,14 @@
 
   <button
     (click)="nextPage()"
+    class="ml-1.5"
     [ngClass]="
       currentpage === pages.length
-        ? 'disabled:opacity-50'
-        : 'btn p-2 cursor-pointer hover:bg-gray-700'
+        ? 'opacity-50'
+        : 'btn cursor-pointer hover:bg-gray-700'
     "
     [disabled]="currentpage === pages.length"
   >
     Next
   </button>
 </div>
-
-<!-- <p-paginator [first]="5" [rows]="1" [totalRecords]="10" /> -->
