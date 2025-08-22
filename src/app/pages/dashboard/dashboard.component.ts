@@ -7,7 +7,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MainMoviesComponent } from '../../components/main-movies/main-movies.component';
 import { MoviesService } from '../movies/movies.service';
 import { MoviesModel } from './../movies/movies.model';
@@ -20,7 +20,7 @@ import {
 
 @Component({
   selector: 'app-dashboard',
-  imports: [MainMoviesComponent],
+  imports: [MainMoviesComponent, RouterLink],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
   providers: [MoviesService],

@@ -41,6 +41,8 @@
       >
         <h2 class="movies-section-title text-[2rem]">Top Movies</h2>
         <a
+          [routerLink]="['/movies']"
+          routerLinkActive="router-link-active"
           href=""
           class="btn movies-section-btn w-[8rem] border-[1px] border-solid border-[#595959]"
           >See All</a
@@ -62,6 +64,8 @@
   </div>
 </main>
 
-<footer class="flex items-center justify-center mt-[1.5rem] mb-[1.5rem] mr-0 ml-0">
+<footer
+  class="flex items-center justify-center mt-[1.5rem] mb-[1.5rem] mr-0 ml-0"
+>
   <p>Designed By Sepehr Nekooie</p>
 </footer>
