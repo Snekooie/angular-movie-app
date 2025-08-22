@@ -9,7 +9,6 @@
       @for (item of movieResponse; track $index) {
       <app-movies-item
         [title]="item.title"
-        [year]="item.year"
         [imdbRate]="item.imdb_rating"
         [imageSrc]="item.poster"
         (onMovieSelect)="handleMovieDetail(item.id)"

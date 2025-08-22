@@ -15,7 +15,6 @@ export class MoviesItemComponent {
   isLiked: boolean = false;
 
   @Input() title: string = '';
-  @Input() year: string = '';
   @Input() imageSrc: string = '';
   @Input() imdbRate: string = '';
 
