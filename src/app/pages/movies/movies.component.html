@@ -18,8 +18,6 @@
       </app-movies-item>
       }
     </div>
-    <app-pagination>
-
-    </app-pagination>
+    <app-pagination (pageChanged)="changeMovies($event)"> </app-pagination>
   </div>
 </div>

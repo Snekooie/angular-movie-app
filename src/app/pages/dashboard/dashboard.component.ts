@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   inject,
+  numberAttribute,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -38,9 +39,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   intervalId!: number;
 
   newReleaseMovies: NewReleaseMovie[] = NewReleaseMovies;
+  currentPage: number = 1;
 
   ngOnInit(): void {
-    this.movieService.getAllMovies().subscribe({
+    this.movieService.getAllMovies(this.currentPage).subscribe({
       next: (res) => {
         this.homePageMovies = res.data;
       },

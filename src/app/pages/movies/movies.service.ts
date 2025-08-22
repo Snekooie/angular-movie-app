@@ -5,12 +5,11 @@ import { MoviesResponse } from './movies.model';
 
 @Injectable({ providedIn: 'root' })
 export class MoviesService {
-
   http = inject(HttpClient);
 
-  getAllMovies(): Observable<MoviesResponse> {
+  getAllMovies(page: number): Observable<MoviesResponse> {
     return this.http.get<MoviesResponse>(
-      'https://moviesapi.ir/api/v1/movies?page={page}'
+      `https://moviesapi.ir/api/v1/movies?page=${page}`
     );
   }
 }

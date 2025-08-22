@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { PaginatorModule } from 'primeng/paginator';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
@@ -13,24 +13,21 @@ export class PaginationComponent {
   pages: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   currentpage: number = 1;
 
+  @Output() pageChanged = new EventEmitter<number>();
+
   nextPage() {
-    if (this.currentpage === this.pages.length) {
-      this.currentpage = 1;
-    } else {
-      this.currentpage++;
-    }
+    this.currentpage++;
+    this.pageChanged.emit(this.currentpage);
   }
 
   prevPage() {
-    if (this.currentpage === 1) {
-      this.currentpage = this.pages.length;
-    } else {
-      this.currentpage--;
-    }
+    this.currentpage--;
+    this.pageChanged.emit(this.currentpage);
   }
 
   goToPage(page: number) {
     this.currentpage = page;
+    this.pageChanged.emit(this.currentpage);
   }
 
   visiblePage(): number[] {

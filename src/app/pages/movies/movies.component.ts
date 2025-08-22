@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { MoviesItemComponent } from '../../components/movies-item/movies-item.component';
 import { MoviesModel } from './movies.model';
 import { MoviesService } from './movies.service';
-import { PaginationComponent } from "../../components/pagination/pagination.component";
+import { PaginationComponent } from '../../components/pagination/pagination.component';
 
 @Component({
   selector: 'app-movies',
@@ -19,7 +19,7 @@ export class MoviesComponent implements OnInit {
   ids: number[] = [];
 
   ngOnInit(): void {
-    this.movies.getAllMovies().subscribe({
+    this.movies.getAllMovies(1).subscribe({
       next: (response) => {
         this.movieResponse = response.data;
         console.log(this.movieResponse);
@@ -45,5 +45,13 @@ export class MoviesComponent implements OnInit {
       this.ids.push(id);
     }
     console.log(this.ids);
+  }
+
+  changeMovies(page: number) {
+    this.movies.getAllMovies(page).subscribe({
+      next: (res) => {
+        this.movieResponse = res.data;
+      },
+    });
   }
 }

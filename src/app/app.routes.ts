@@ -65,19 +65,6 @@ export const routes: Routes = [
     ],
   },
   {
-    path: 'favourite',
-    component: NavbarLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () =>
-          import('./pages/movies/favourite-movie/favourite-movie.routes').then(
-            (routes) => routes.FavouriteMoviesRoutes
-          ),
-      },
-    ],
-  },
-  {
     path: 'movies/search',
     component: NavbarLayoutComponent,
     children: [
